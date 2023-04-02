@@ -28,27 +28,27 @@
     }
   %>
 
-<ul class="navbar">
-  <%  %>
-  <li class="navbar-item"><a href="accueil.jsp" class="navbar-link">
-    <img src="logo.png" alt="logo" width="50" height="50"></a></li>
-  <% if (user != null){
-      if ("admin".equals( user.getRole())){%>
-  <li class="navbar-item" style="float: right;"><a href="page_admin.jsp" class="navbar-link">Administration</a></li>
-  <%}%>
+  <ul class="navbar">
+    <%  %>
+    <li class="navbar-item"><a href="accueil.jsp" class="navbar-link">
+      <img src="logo.png" alt="logo" width="50" height="50"></a></li>
+    <% if (user != null){
+        if ("admin".equals( user.getRole())){%>
+    <li class="navbar-item" style="float: right;"><a href="page_admin.jsp" class="navbar-link">Administration</a></li>
+    <%}%>
 
-  <li class="navbar-item" style="float: right;"><a href="servlet-deconnexion" class="navbar-link">Deconnexion</a></li>
-  <%}
-  else{ %>
-  <li class="navbar-item" style=
-          "float: right;"><a href="connexion.jsp" class="navbar-link">Connexion</a></li>
-  <% }
-  %>
-</ul>
+    <li class="navbar-item" style="float: right;"><a href="servlet-deconnexion" class="navbar-link">Deconnexion</a></li>
+    <%}
+    else{ %>
+    <li class="navbar-item" style=
+            "float: right;"><a href="connexion.jsp" class="navbar-link">Connexion</a></li>
+    <% }
+    %>
+  </ul>
 
-<div class="container" style="flex-direction: column;">
-  <h1> Bienvenu <%=user.getLogin()%> ! </h1>
-  <h3> Les vins </h3>
+  <div class="container" style="flex-direction: column;">
+    <h1> Bienvenu <%=user.getLogin()%> ! </h1>
+    <h3> Les vins </h3>
       <table>
         <tr>
           <th>Nom</th>
@@ -80,9 +80,7 @@
         <% }
             %>
       </table>
-</div>
-
-
+  </div>
 <%
           }
           catch (Exception e){
@@ -90,6 +88,5 @@
           }
     }
 %>
-
 </body>
 </html>

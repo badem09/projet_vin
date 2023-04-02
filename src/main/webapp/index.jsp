@@ -12,7 +12,5 @@
     <li class="navbar-item" style="float: right;"><a href="connexion.jsp" class="navbar-link">Se connecter</a></li>
 </ul>
 
-
-
 </body>
 </html>
