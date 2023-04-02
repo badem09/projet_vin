@@ -10,6 +10,10 @@ import javax.servlet.annotation.*;
 public class ServletConnexion extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        /**
+         * Vérifie les identifiant de connexion (login / mdp) et renvoie vers
+         * la page d'accueil ou la page de connexion selon leur validité.
+         */
         HttpSession session = request.getSession();
         String login = request.getParameter("login");
         String mdp = request.getParameter("mdp");
@@ -40,11 +44,9 @@ public class ServletConnexion extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
         doGet(request,response);
     }
 

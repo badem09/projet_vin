@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <title>Connexion</title>
 </head>
 <body>
 
@@ -15,11 +16,11 @@
     <form action="servlet-connexion" method="post">
         <div>
             <label for="login">Login  : </label>
-            <input type="text" id="login" name="login" required="login">
+            <input type="text" id="login" name="login" required>
         </div>
         <div>
             <label for="mdp">Mot de passe : </label>
-            <input type="password" id="mdp" name="mdp" required="mdp">
+            <input type="password" id="mdp" name="mdp" required>
         </div>
         <input type="submit" id="ok" value="Se connecter">
     </form>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <title>Velizy Vins</title>
 </head>
 <body>
 <!-- Barre de navigation 1 -->

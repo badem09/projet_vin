@@ -16,7 +16,7 @@
     </ul>
     <%
         String id = request.getParameter("id");
-        Connection conn=null;
+        Connection conn;
         String login_client = "Error", mdp_client = "Error";
         try {
             Class.forName("com.mysql.jdbc.Driver");

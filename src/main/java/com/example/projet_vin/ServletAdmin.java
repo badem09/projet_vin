@@ -17,12 +17,11 @@ public class ServletAdmin extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         String query = getQuery(request);
         Connection conn;
-        try {
+        try { // setup connexion
             Class.forName("com.mysql.jdbc.Driver");
             String jdbc = "jdbc:mysql://localhost:3306/projet_vin";
             String root = "root";
             conn = DriverManager.getConnection(jdbc, root, "");
-
             conn.prepareStatement(query).executeUpdate();
             response.sendRedirect("page_admin.jsp");
         }  catch (Exception e) {

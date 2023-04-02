@@ -1,5 +1,4 @@
 <%@ page import="com.example.projet_vin.User" %>
-<%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -8,29 +7,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<%
-  User user = (User) session.getAttribute("user");
-  if(user == null) {
-    response.sendRedirect("index.jsp");
-  }
-  else{
-
-  String nom, stock, couleur, libelle, prix  ;
-  Connection conn=null;
-  try {
-    Class.forName("com.mysql.jdbc.Driver");
-    String jdbc = "jdbc:mysql://localhost:3306/projet_vin";
-    String root = "root";
-    String mdp = "";
-    conn = DriverManager.getConnection(jdbc, root, mdp);
-  } catch (Exception e) {
-    e.printStackTrace();
-  }
-%>
+  <%
+    User user = (User) session.getAttribute("user");
+    if(user == null) {
+      response.sendRedirect("index.jsp");
+    }
+    else{
+      String nom, stock, couleur, libelle, prix  ;
+      Connection conn= null;
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      String jdbc = "jdbc:mysql://localhost:3306/projet_vin";
+      conn = DriverManager.getConnection(jdbc, "root", "");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  %>
 
 <ul class="navbar">
   <%  %>
@@ -50,10 +46,9 @@
   %>
 </ul>
 
-<h1> T connecté le kho <%=user.getLogin()%> <%=user.getRole()%> </h1>
-
-<div class="container">
-    <h3> Les vins </h3>
+<div class="container" style="flex-direction: column;">
+  <h1> Bienvenu <%=user.getLogin()%> ! </h1>
+  <h3> Les vins </h3>
       <table>
         <tr>
           <th>Nom</th>
@@ -63,15 +58,17 @@
           <th>Prix unitaire</th>
         </tr>
         <%
-          String sel="SELECT * from vins";
-          PreparedStatement st=conn.prepareStatement(sel);
-          ResultSet res=st.executeQuery();
-          while (res.next()) {
-            nom = res.getString("nom");
-            stock = res.getString("stock");
-            couleur = res.getString("couleur");
-            libelle = res.getString("libelle");
-            prix = res.getString("prix");
+          try {
+
+            String sel="SELECT * from vins";
+            PreparedStatement st=conn.prepareStatement(sel);
+            ResultSet res=st.executeQuery();
+            while (res.next()) {
+              nom = res.getString("nom");
+              stock = res.getString("stock");
+              couleur = res.getString("couleur");
+              libelle = res.getString("libelle");
+              prix = res.getString("prix");
         %>
         <tr>
           <td><%= nom%></td>
@@ -80,11 +77,19 @@
           <td><%= libelle%></td>
           <td><%= prix%></td>
         </tr>
-        <% } %>
+        <% }
+            %>
       </table>
-  </div>
+</div>
 
-<%}%>
+
+<%
+          }
+          catch (Exception e){
+            throw new RuntimeException();
+          }
+    }
+%>
 
 </body>
 </html>
