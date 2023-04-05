@@ -14,6 +14,7 @@
     <div style="display:flex; justify-content: center;" class="divform">
         <form action="servlet-admin" method="post" name="ajout_client">
             <fieldset>
+                <legend>Client à ajouter :</legend>
                 <input type="hidden" value="ajout_client" name="nom_form">
                 <input type="hidden" name="action" value="ajout">
                 <input type="hidden" name="type" value="user">
@@ -23,7 +24,7 @@
                 </div>
                 <div>
                     <label for="mdp">Mot de passe: </label>
-                    <input type="password" id="mdp" name="mdp" required>
+                    <input type="text" id="mdp" name="mdp" required>
                 </div>
                 <input type="submit" id="ok" value="Envoyer">
             </fieldset>
