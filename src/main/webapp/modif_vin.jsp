@@ -37,14 +37,12 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
-
-
 %>
 
 <div style="display:flex; justify-content: center;" class="divform">
     <form action="servlet-admin" method="post" name="modif_vin">
         <fieldset>
-            <legend>Informations du vin à modifier</legend>
+            <legend>Informations du vin à modifier :</legend>
             <input type="hidden" value="modif_vin" name="nom_form">
             <input type="hidden" name="id" value="<%=id%>">
             <input type="hidden" name="action" value="modif">
