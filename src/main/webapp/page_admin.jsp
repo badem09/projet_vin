@@ -40,14 +40,15 @@
             <div style="padding: 20px; display: inline-block;">
                 <a href="ajout_vin.jsp"><button style="float: left; margin-bottom: 10px; ">Ajouter</button></a>
                 <table>
-                <tr>
-                    <th>Nom</th>
-                    <th>Stock</th>
-                    <th>Couleur</th>
-                    <th>Libellé</th>
-                    <th>Prix unitaire</th>
-                    <th colspan="3"></th>
-                </tr>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Stock</th>
+                        <th>Couleur</th>
+                        <th>Libellé</th>
+                        <th>Prix unitaire</th>
+                        <th colspan="3"></th>
+                    </tr>
+                        <tbody style="overflow: auto;">
                 <%
                 String sel="SELECT * from vins";
                 PreparedStatement st=conn.prepareStatement(sel);
@@ -60,15 +61,16 @@
                     prix = res.getString("prix");
                     id = res.getString("id");
                 %>
-                <tr>
-                    <td><%= nom%></td>
-                    <td><%= stock%></td>
-                    <td><%= couleur%></td>
-                    <td><%= libelle%></td>
-                    <td><%= prix%></td>
-                    <td><a href="modif_vin.jsp?id=<%=id%>"><button>Modifier</button></a></td>
-                    <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>"><button>Supprimer</button></a></td>
-                </tr>
+                        <tr>
+                            <td><%= nom%></td>
+                            <td><%= stock%></td>
+                            <td><%= couleur%></td>
+                            <td><%= libelle%></td>
+                            <td><%= prix%></td>
+                            <td><a href="modif_vin.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
+                            <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce vin?');"><img src="red_cross.png" class="icon"></a></td>
+                        </tr>
+                    </tbody>
                     <% } %>
                 </table>
             </div>
@@ -88,18 +90,20 @@
                     <th>Mot de passe</th>
                     <th colspan="3"></th>
                 </tr>
+                    <tbody style="overflow: auto;">
             <%
             while (res2.next()) {
                 login = res2.getString("login");
                 mdp = res2.getString("mdp");
                 id = res2.getString("id");
             %>
-                <tr>
-                    <td><%= login%></td>
-                    <td><%= mdp%></td>
-                    <td><a href="modif_client.jsp?id=<%=id%>"><button>Modifier</button></a></td>
-                    <td><a href="servlet-admin?action=suppr&type=user&id=<%=id%>"><button>Supprimer</button></a></td>
-                </tr>
+                    <tr>
+                        <td><%= login%></td>
+                        <td><%= mdp%></td>
+                        <td><a href="modif_client.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
+                        <td><a href="servlet-admin?action=suppr&type=user&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img src="red_cross.png" class="icon"></a></td>
+                    </tr>
+                    </tbody>
                 <% } %>
                 </table>
             </div>
