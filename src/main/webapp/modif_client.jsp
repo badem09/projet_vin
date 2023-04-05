@@ -31,13 +31,11 @@
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     %>
-    <h1> <%=login_client%></h1>
     <div style="display:flex; justify-content: center;" class="divform">
         <form action="servlet-admin" method="post" name="modif_client">
             <fieldset>
+                <legend>Informations du client à modifier :</legend>
                 <input type="hidden" value="modif_client" name="nom_form">
                 <input type="hidden" value="<%=id%>" name="id">
                 <input type="hidden" name="action" value="modif">
