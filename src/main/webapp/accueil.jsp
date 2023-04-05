@@ -42,7 +42,7 @@
 </ul>
 
 <div class="container" style="flex-direction: column;">
-    <h1> Bienvenu <%=user.getLogin()%> ! </h1>
+    <h1> Bienvenue <%=user.getLogin()%> ! </h1>
     <h3> Les vins </h3>
     <table>
         <tr>
@@ -52,6 +52,7 @@
             <th>Libellé</th>
             <th>Prix unitaire</th>
         </tr>
+        <tbody style="overflow: auto">
         <%
             try {
 
@@ -65,13 +66,14 @@
                     libelle = res.getString("libelle");
                     prix = res.getString("prix");
         %>
-        <tr>
-            <td><%= nom%></td>
-            <td><%= stock%></td>
-            <td><%= couleur%></td>
-            <td><%= libelle%></td>
-            <td><%= prix%></td>
-        </tr>
+            <tr>
+                <td><%= nom%></td>
+                <td><%= stock%></td>
+                <td><%= couleur%></td>
+                <td><%= libelle%></td>
+                <td><%= prix%></td>
+            </tr>
+        </tbody>
         <% }
         %>
     </table>
