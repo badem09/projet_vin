@@ -14,6 +14,7 @@
     <div style="display:flex; justify-content: center;" class="divform">
         <form action="servlet-admin" method="post" name="ajout_vin">
             <fieldset>
+                <legend>Vin à ajouter :</legend>
                 <input type="hidden" value="ajout_vin" name="nom_form">
                 <input type="hidden" name="action" value="ajout">
                 <input type="hidden" name="type" value="vins">
