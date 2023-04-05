@@ -57,10 +57,12 @@
                 <label for="stock">Stock : </label>
                 <input type="text" id="stock" name="stock" value="<%=stock%>" required>
             </div>
-            <div>
-                <label for="couleur">Couleur : </label>
-                <input type="text" id="couleur" name="couleur" value="<%=couleur%>" required>
-            </div>
+            <label for="couleur">Couleur : </label>
+            <select name="couleur" id="couleur" required>
+                <option value="blanc">Blanc</option>
+                <option value="rose">Rosé</option>
+                <option value="rouge">Rouge</option>
+            </select>
             <div>
                 <label for="libelle">Libelle : </label>
                 <input type="text" id="libelle" name="libelle" value="<%=libelle%>" required>
