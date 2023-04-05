@@ -39,7 +39,11 @@ public class ServletConnexion extends HttpServlet {
                 String role = res.getString("role");
                 User user = new User(login,role,mdp);
                 session.setAttribute("user", user);
-                response.sendRedirect("accueil.jsp");
+                if (role.equals("user")) {
+                    response.sendRedirect("accueil.jsp");
+                } else if (role.equals("admin")) {
+                    response.sendRedirect("page_admin.jsp");
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
