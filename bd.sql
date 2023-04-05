@@ -18,5 +18,12 @@ CREATE TABLE `vins` (
 ALTER TABLE vins
     ADD CONSTRAINT check_couleur CHECK (couleur IN ('rouge', 'blanc', 'rosé'));
 
+ALTER TABLE users
+    ADD CONSTRAINT check_user CHECK (role IN ('admin', 'client'));
+
+
 INSERT INTO `vins` (`id`, `nom`, `couleur`, `libelle`, `stock`, `prix`) VALUES (1, 'vin 1', 'rouge', 'libellé 1 ', '99', '12345');
 INSERT INTO `vins` (`id`, `nom`, `couleur`, `libelle`, `stock`, `prix`) VALUES (2, 'vin 2', 'rouge', 'libellé 2 ', '99', '12345');
+
+INSERT INTO `users` (`id`, `role`, `login`, `mdp`) VALUES ('1', 'admin', 'admin', 'admin');
+INSERT INTO `users` (`id`, `role`, `login`, `mdp`) VALUES (2, 'client', 'client', 'client');
