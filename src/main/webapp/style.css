@@ -1,3 +1,62 @@
+
+/* Styles pour le formulaire de connexion */
+form {
+    position: absolute; /* définit la position de l'élément */
+    top: 50%; /* place l'élément à 50% de la hauteur de la page */
+    left: 50%; /* place l'élément à 50% de la largeur de la page */
+    transform: translate(-50%, -50%); /* centre l'élément par rapport à son point central */
+    width: 400px; /* ajustez la largeur selon vos besoins */
+    margin: 0 auto; /* centre le formulaire horizontalement */
+    background-color: #F2E2CE; /* couleur beige */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center; /* aligne les éléments du formulaire au centre */
+}
+
+/* Styles pour les champs de formulaire */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #6B3E26; /* couleur brun foncé */
+}
+
+input[type="text"], input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #A61E32; /* couleur bordeaux */
+    font-size: 16px;
+    margin: 0 auto 10px auto; /* centre les champs de saisie horizontalement et ajoute une marge en bas */
+    box-sizing: border-box; /* inclut la bordure dans la largeur du champ */
+}
+
+/* Styles pour le bouton de soumission */
+input[type="submit"] {
+    display: inline-block;
+    background-color: #A61E32; /* couleur bordeaux */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px; /* ajoute une marge en haut du bouton */
+}
+
+input[type="submit"]:hover {
+    background-color: #5B0000; /* couleur bordeaux foncé */
+}
+
+/* Styles pour les messages d'erreur */
+.error {
+    color: #A61E32; /* couleur bordeaux */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 /* Styles pour la barre de navigation */
 .navbar {
     list-style-type: none;
@@ -45,16 +104,36 @@
 
 .container table {
     border-collapse: collapse;
-    border: 1px solid #ddd;
     margin: auto;
     table-layout: fixed;
 }
-.container th{
-    background-color: #c5c5c5;
-    width: auto;
-}
+
 .container th, td {
     text-align: left;
     padding: 10px;
-    border : 1px solid #dddddd;
+    border : 1px solid #5B0000;
+    width: auto;
+
+}
+
+.container td {
+    background-color: #F2E2CE;
+}
+
+.container th {
+    background-color: #A61E32;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+}
+
+body {
+    background-color: #F2E2CE;
+}
+
+legend{
+    font-weight: bold;
+    color: #6B3E26;
 }
