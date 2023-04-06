@@ -143,3 +143,35 @@ legend{
     border-left: 2px solid black;
     height: 100%;
 }
+
+.erreur {
+    border: 1px solid #FF6969!important;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FF6969;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.centrerDiv {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.centrerImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+}
+
+.centrerP {
+    text-align: center;
+    position: center;
+}
