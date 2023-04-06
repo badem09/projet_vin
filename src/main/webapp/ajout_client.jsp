@@ -1,9 +1,19 @@
+<%@ page import="com.example.projet_vin.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<%
+
+    User user = (User) session.getAttribute("user");
+    if(user == null) {
+        response.sendRedirect("index.jsp");
+    }
+    else{
+%>
 <body>
     <ul class="navbar">
         <li class="navbar-item"><a href="accueil.jsp" class="navbar-link">
@@ -12,6 +22,12 @@
         <li class="navbar-item" style="float: right;"><a href="servlet-deconnexion" class="navbar-link">Deconnexion</a></li>
     </ul>
     <div style="display:flex; justify-content: center;" class="divform">
+        <%
+            String error = (String) session.getAttribute("error");
+            if (error != null){
+        %> <p class="erreur"> <%=error%> </p>
+        <%  session.setAttribute("error", null);
+            }%>
         <form action="servlet-admin" method="post" name="ajout_client">
             <fieldset>
                 <legend>Client à ajouter :</legend>
@@ -33,3 +49,4 @@
     </div>
 </body>
 </html>
+<%}%>

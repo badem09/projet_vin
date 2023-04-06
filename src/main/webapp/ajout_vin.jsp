@@ -1,4 +1,12 @@
+<%@ page import="com.example.projet_vin.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+        User user = (User) session.getAttribute("user");
+        if(user == null) {
+            response.sendRedirect("index.jsp");
+        }
+        else{
+            %>
 <html>
 <head>
     <title>Title</title>
@@ -40,7 +48,7 @@
                 </div>
                 <div>
                     <label for="prix"> Prix : </label>
-                    <input type="number" id="prix" name="prix" required>
+                    <input type="number" step="0.01" id="prix" name="prix" required>
                 </div>
                 <input type="submit" id="ok" value="Envoyer">
             </fieldset>
@@ -48,3 +56,4 @@
     </div>
 </body>
 </html>
+<% } %>
