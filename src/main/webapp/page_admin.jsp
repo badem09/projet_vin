@@ -48,7 +48,7 @@
                         <th>Prix unitaire (en euros)</th>
                         <th colspan="3"></th>
                     </tr>
-                        <tbody style="overflow: auto;">
+                    <tbody style="overflow: auto;">
                 <%
                 String sel="SELECT * from vins";
                 PreparedStatement st=conn.prepareStatement(sel);
@@ -71,7 +71,7 @@
                             <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce vin?');"><img src="red_cross.png" class="icon"></a></td>
                         </tr>
                     <% } %>
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -86,27 +86,25 @@
             <div style="padding: 20px; display:inline-flex; flex-direction: column">
                 <a href="ajout_client.jsp"><button style="float: left; margin-bottom: 10px; ">Ajouter</button></a>
                 <table>
-                <tr>
-                    <th>Login</th>
-                    <th>Mot de passe</th>
-                    <th colspan="3"></th>
-                </tr>
-                    <tbody style="overflow: auto;">
-            <%
-            while (res2.next()) {
-                login = res2.getString("login");
-                mdp = res2.getString("mdp");
-                id = res2.getString("id");
-            %>
                     <tr>
-                        <td><%= login%></td>
-                        <td><%= mdp%></td>
-                        <td><a href="modif_client.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
-                        <td><a href="servlet-admin?action=suppr&type=user&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img src="red_cross.png" class="icon"></a></td>
+                        <th>Login</th>
+                        <th>Mot de passe</th>
+                        <th colspan="3"></th>
                     </tr>
-                <% } %>
+                    <tbody style="overflow: auto;">
+                <%
+                while (res2.next()) {
+                    login = res2.getString("login");
+                    mdp = res2.getString("mdp");
+                %>
+                        <tr>
+                            <td><%= login%></td>
+                            <td><%= mdp%></td>
+                            <td><a href="modif_client.jsp?login=<%=login%>"><img src="red_pen.png" class="icon"></a></td>
+                            <td><a href="servlet-admin?action=suppr&type=user&login=<%=login%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img src="red_cross.png" class="icon"></a></td>
+                        </tr>
+                    <% } %>
                     </tbody>
-
                 </table>
             </div>
         </div>
