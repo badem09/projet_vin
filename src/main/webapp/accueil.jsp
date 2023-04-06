@@ -50,7 +50,7 @@
             <th>Stock</th>
             <th>Couleur</th>
             <th>Libellé</th>
-            <th>Prix unitaire</th>
+            <th>Prix unitaire (en euros) </th>
         </tr>
         <tbody style="overflow: auto">
         <%
