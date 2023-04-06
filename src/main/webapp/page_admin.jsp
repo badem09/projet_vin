@@ -37,7 +37,7 @@
     <div class="container">
         <div class="content">
             <h3> Les vins </h3>
-            <div style="padding: 20px; display: inline-block;">
+            <div style="padding: 20px; display:inline-flex; flex-direction: column">
                 <a href="ajout_vin.jsp"><button style="float: left; margin-bottom: 10px; ">Ajouter</button></a>
                 <table>
                     <tr>
@@ -45,7 +45,7 @@
                         <th>Stock</th>
                         <th>Couleur</th>
                         <th>Libellé</th>
-                        <th>Prix unitaire</th>
+                        <th>Prix unitaire (en euros)</th>
                         <th colspan="3"></th>
                     </tr>
                         <tbody style="overflow: auto;">
@@ -70,8 +70,8 @@
                             <td><a href="modif_vin.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
                             <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce vin?');"><img src="red_cross.png" class="icon"></a></td>
                         </tr>
-                    </tbody>
                     <% } %>
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -80,9 +80,10 @@
         String query2="SELECT * from users WHERE role='client'";
         ResultSet res2=conn.prepareStatement(query2).executeQuery();
         %>
+        <div class="vl"></div>
         <div class="content">
             <h3> Les clients </h3>
-            <div style="padding: 20px; display: inline-block;">
+            <div style="padding: 20px; display:inline-flex; flex-direction: column">
                 <a href="ajout_client.jsp"><button style="float: left; margin-bottom: 10px; ">Ajouter</button></a>
                 <table>
                 <tr>
@@ -103,8 +104,9 @@
                         <td><a href="modif_client.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
                         <td><a href="servlet-admin?action=suppr&type=user&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img src="red_cross.png" class="icon"></a></td>
                     </tr>
-                    </tbody>
                 <% } %>
+                    </tbody>
+
                 </table>
             </div>
         </div>
