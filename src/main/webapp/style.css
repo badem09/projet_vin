@@ -93,13 +93,14 @@ input[type="submit"]:hover {
     margin-right:5px;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    height: 85%;
 }
 
 .content {
     flex-direction: column;
     flex: 10%;
     padding: 5px;
-    display: inline-block;
 }
 
 .container table {
@@ -136,4 +137,9 @@ body {
 legend{
     font-weight: bold;
     color: #6B3E26;
+}
+
+.vl {
+    border-left: 2px solid black;
+    height: 100%;
 }
