@@ -4,7 +4,7 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="com.example.projet_vin.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="fr">
 <head>
     <title>Administration</title>
     <link rel="stylesheet" href="style.css">
@@ -40,14 +40,14 @@
             <div style="padding: 20px; display:inline-flex; flex-direction: column">
                 <a href="ajout_vin.jsp"><button style="float: left; margin-bottom: 10px; ">Ajouter</button></a>
                 <table>
-                    <tr>
+                    <thead>
                         <th>Nom</th>
                         <th>Stock</th>
                         <th>Couleur</th>
                         <th>Libellé</th>
                         <th>Prix unitaire (en euros)</th>
-                        <th colspan="3"></th>
-                    </tr>
+                        <th colspan="3">&nbsp;</th>
+                    </thead>
                     <tbody style="overflow: auto;">
                 <%
                 String sel="SELECT * from vins";
@@ -67,8 +67,8 @@
                             <td><%= couleur%></td>
                             <td><%= libelle%></td>
                             <td><%= prix%></td>
-                            <td><a href="modif_vin.jsp?id=<%=id%>"><img src="red_pen.png" class="icon"></a></td>
-                            <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce vin?');"><img src="red_cross.png" class="icon"></a></td>
+                            <td><a href="modif_vin.jsp?id=<%=id%>"><img alt="Modifier" src="red_pen.png" class="icon"></a></td>
+                            <td><a href="servlet-admin?action=suppr&type=vins&id=<%=id%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce vin?');"><img src="red_cross.png" alt="Supprimer" class="icon"></a></td>
                         </tr>
                     <% } %>
                     </tbody>
@@ -100,8 +100,8 @@
                         <tr>
                             <td><%= login%></td>
                             <td><%= mdp%></td>
-                            <td><a href="modif_client.jsp?login=<%=login%>"><img src="red_pen.png" class="icon"></a></td>
-                            <td><a href="servlet-admin?action=suppr&type=user&login=<%=login%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img src="red_cross.png" class="icon"></a></td>
+                            <td><a href="modif_client.jsp?login=<%=login%>"><img alt="Modifier" src="red_pen.png" class="icon"></a></td>
+                            <td><a href="servlet-admin?action=suppr&type=user&login=<%=login%>" onclick="confirm('Etes-vous sûr de vouloir supprimer ce client ?')"><img alt="Supprimer" src="red_cross.png" class="icon"></a></td>
                         </tr>
                     <% } %>
                     </tbody>

@@ -5,7 +5,7 @@
 <%@ page import="java.sql.PreparedStatement" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>Accueil</title>
     <link rel="stylesheet" href="style.css">
@@ -35,10 +35,7 @@
     <li class="navbar-item" style="float: right;"><a href="page_admin.jsp" class="navbar-link">Administration</a></li>
       <%}%>
     <li class="navbar-item" style="float: right;"><a href="servlet-deconnexion" class="navbar-link">Deconnexion</a></li>
-    <%} else { %>
-    <li class="navbar-item" style=
-            "float: right;"><a href="connexion.jsp" class="navbar-link">Connexion</a></li>
-      <% } %>
+    <%}%>
 </ul>
 
 <div class="container" style="flex-direction: column;">

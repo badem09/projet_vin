@@ -1,13 +1,12 @@
 <%@ page import="com.example.projet_vin.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="fr">
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <%
-
     User user = (User) session.getAttribute("user");
     if(user == null) {
         response.sendRedirect("index.jsp");
