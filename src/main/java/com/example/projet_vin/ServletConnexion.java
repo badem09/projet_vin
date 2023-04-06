@@ -2,7 +2,6 @@ package com.example.projet_vin;
 
 import java.io.*;
 import java.sql.*;
-import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -39,7 +38,7 @@ public class ServletConnexion extends HttpServlet {
                 String role = res.getString("role");
                 User user = new User(login,role,mdp);
                 session.setAttribute("user", user);
-                if (role.equals("user")) {
+                if (role.equals("client")) {
                     response.sendRedirect("accueil.jsp");
                 } else if (role.equals("admin")) {
                     response.sendRedirect("page_admin.jsp");
