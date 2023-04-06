@@ -1,7 +1,16 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Connection" %>
+<%@ page import="com.example.projet_vin.User" %>
+<%@ page import="java.sql.PreparedStatement" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User user = (User) session.getAttribute("user");
+    if(user == null) {
+        response.sendRedirect("index.jsp");
+    }
+    else{
+%>
 <html>
 <head>
     <title>Title</title>
@@ -24,8 +33,10 @@
         Class.forName("com.mysql.jdbc.Driver");
         String jdbc = "jdbc:mysql://localhost:3306/projet_vin";
         conn = DriverManager.getConnection(jdbc, "root", "");
-        String query = "SELECT * from vins WHERE id="+id;
-        ResultSet res = conn.prepareStatement(query).executeQuery();
+        String query = "SELECT * from vins WHERE id=?";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1,id);
+        ResultSet res = stmt.executeQuery();
         while (res.next()) {
             nom = res.getString("nom");
             stock = res.getString("stock");
@@ -53,13 +64,13 @@
             </div>
             <div>
                 <label for="stock">Stock : </label>
-                <input type="text" id="stock" name="stock" value="<%=stock%>" required>
+                <input type="number" id="stock" name="stock" value="<%=stock%>" required>
             </div>
             <label for="couleur">Couleur : </label>
             <select name="couleur" id="couleur" required>
-                <option value="blanc">Blanc</option>
-                <option value="rose">Rosé</option>
-                <option value="rouge">Rouge</option>
+                <option value="blanc" <%if(couleur.equals("blanc")){%> selected <%} %>>Blanc</option>
+                <option value="rose" <%if(couleur.equals("rose")){%> selected <%} %>>Rosé</option>
+                <option value="rouge" <%if(couleur.equals("rouge")){%> selected <%} %>>Rouge</option>
             </select>
             <div>
                 <label for="libelle">Libelle : </label>
@@ -67,7 +78,7 @@
             </div>
             <div>
                 <label for="prix"> Prix : </label>
-                <input type="text" id="prix" name="prix" value="<%=prix%>" required>
+                <input type="number" step="0.01" id="prix" name="prix" value="<%=prix%>" required>
             </div>
             <input type="submit" id="ok" value="Envoyer">
         </fieldset>
@@ -76,3 +87,4 @@
 
 </body>
 </html>
+<%}%>
