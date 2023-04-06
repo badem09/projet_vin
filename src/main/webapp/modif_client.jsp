@@ -39,7 +39,7 @@
                 <input type="hidden" value="modif_client" name="nom_form">
                 <input type="hidden" value="<%=id%>" name="id">
                 <input type="hidden" name="action" value="modif">
-                <input type="hidden" name="type" value="user">
+                <input type="hidden" name="role" value="user">
                 <div>
                     <label for="login">Login </label>
                     <input type="text" id="login" name="login" value="<%=login_client%>" required>

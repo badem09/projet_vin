@@ -18,6 +18,7 @@
                 <input type="hidden" value="ajout_client" name="nom_form">
                 <input type="hidden" name="action" value="ajout">
                 <input type="hidden" name="type" value="user">
+                <input type="hidden" name="role" value="client">
                 <div>
                     <label for="login">Login </label>
                     <input type="text" id="login" name="login" required>
